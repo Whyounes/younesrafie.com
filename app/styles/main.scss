@@ -1,0 +1,457 @@
+@import "compass/css3";
+@import "compass/reset";
+
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+body {
+  background: #FFF;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+hr{
+  box-shadow: 0px 0px 5px #CCC;
+  width: 70%;
+  margin: 40px auto;
+}
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 15% 7%;
+  h2{
+    color: #FFF;
+    font-weight: 300;
+    font-size: 35px;
+  }
+}
+
+/*
+Clear fix (davidwalsh)
+ */
+.clear:before, .clear:after {
+  content: " ";
+  display: table;
+}
+.clear:after {
+  clear: both;
+}
+
+.rounded{
+  border-radius: 50%;
+}
+
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+header{
+  top: 0;
+  background-color: #F6F6F6;
+  color: #000;
+  box-shadow: 0px 1px 6px #CCC;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+footer{
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #F6F6F6;
+  box-shadow: 0px -1px 6px #CCC;
+  padding: 25px;
+  margin-top: 20px;
+  color: #222;
+}
+
+/*
+ *  Menu component
+ */
+
+.menu-bar{
+  display: none;
+  float: right;
+  font-size: 50px;
+  color: #444;
+  margin-right: 20px;
+}
+
+.logo{
+  padding: 0px 20px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #444;
+  line-height: 1.2em;
+  letter-spacing: 6px;
+  &:before{
+    content: attr(data-medium);
+    display: block;
+  }
+}//logo
+
+.menu{
+  list-style: none;
+  float: right;
+  margin: 0px;
+  margin-right: 20px;
+  @include transition( all 1s ease );
+
+  li{
+    padding: 25px 30px;
+    margin: 0px 0px 0px -5px;
+    @include inline-block(top);
+    
+    &:hover{
+      cursor: pointer;
+      border-bottom-width: 7px;
+    }
+    &:hover a{
+      color: #333;
+    }
+    a{
+      color: #444;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-decoration: none;
+    }//a
+  }//li
+  
+  li:nth-child(1){
+    border-bottom: 5px solid #9351A6;
+  }
+  li:nth-child(2){
+    border-bottom: 5px solid #4472B9;
+  }
+  li:nth-child(3){
+    border-bottom: 5px solid #4CA454;
+  }
+  li:nth-child(4){
+    border-bottom: 5px solid #BE4C39;
+  }
+
+}//menu
+
+@media screen and (min-width: 910px){
+  .logo{
+    float: left;
+  }//logo 
+}
+
+@media screen and (max-width: 910px){
+  .menu{
+    float: none;
+    margin: 0px;
+    border-top: 1px solid #444;
+    margin-top: 15px;
+    
+    li{
+      display: block;
+      float: left;
+      width: 50%;
+      margin: 0px;
+    }
+  }//menu
+
+  .logo{
+    float: none;
+    text-align: center;
+    line-height: 1em;
+  }
+}
+
+@media screen and (max-width: 630px){
+  .menu{
+    clear:both;
+    padding: 0px;
+    margin: 0px;
+    background-color: #DDD;
+    width: 100%;
+    height: 100%;
+    @include transition( all 1s ease );
+    
+    li{
+      display: block;
+      border-top: 1px solid #666;
+      width: 100%;
+    }
+  }//menu
+
+  .menu-bar{
+    display: block;
+    cursor: pointer;
+  }
+
+  .menu-hidden{
+    //display: none;
+    position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0);
+    height: 1px; 
+    width: 1px;
+    margin: -1px; 
+    padding: 0; 
+    border: 0;
+  }
+
+  .logo{
+    float: left;
+    text-align: left;
+  }
+}
+
+/*
+ * Presentation
+ */
+
+#me{
+  margin: 150px 10% 150px 10%;
+  
+  .image{
+    >img{
+      width: 250px;
+      height: 250px;
+    }
+    width: 30%;
+    float: left;
+  }
+  
+  .presentation{
+    width: 70%;
+    float: left;
+    margin-top: 4%;
+    font-size: 1.9em;
+    font-weight: 500;
+    text-shadow: none;
+    line-height: 1.2em;
+  }
+}
+
+@media screen and ( max-width: 1100px ) {
+  #me{
+    .image{
+      display: none;
+    }
+
+    .presentation{
+      width: 100%;
+      line-height: 1.4em;
+      text-shadow: 0px 0px 3px #DDD;
+      margin-top: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 910px){
+  #me{
+    margin-top: 250px;
+  }
+}
+
+@media screen and (max-width: 630px){
+  #me{
+    margin-top: 100px;
+
+    .presentation{
+      font-size: 2em;
+    }
+  }
+}
+
+
+/*
+  Projects
+*/
+
+.projects{
+  margin-top: 25px;
+  
+  .project{
+    background-color: #F2F2F2;
+    box-shadow: 0px 0px 4px #666;
+    margin: auto;
+    margin-bottom: 25px;
+    width: 80%;
+    position: relative;
+
+    .screenshot{
+      margin-right: 15px;
+      float: left;
+
+      >img{
+        width: 250px;
+        height: 200px;
+      }
+    }
+    .description{
+      font-weight: bold;
+      font-size: 1.2em;
+      padding: 10px;
+    }
+    .link{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: #4472B9;
+      padding: 7px 10px;
+
+      a{
+        font-weight: bold;
+        font-size: 16px;
+        color: #FFF;
+      }
+    }
+  }//project
+
+}
+
+@media screen and (max-width: 700px) {
+  .project{
+    padding-bottom: 30px;
+
+    .screenshot{
+      display: none;
+    }
+
+  } 
+}
+
+
+/*
+  Skills
+*/
+
+.skills{
+  width: 70%;
+  margin: auto;
+
+  .skill{
+    border-radius: 2px 2px 2px 3px;
+    padding: 5px 7px;
+    margin-top: 10px;
+    border: 1px solid #CCC;
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 3px;
+    @include inline-block(top);
+  }
+
+  h4 {
+    line-height: 3em;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+}
+
+.skill{
+  background-color: #666;
+}
+
+.skill.php{
+  background-color: #99C;
+}
+
+.skill.mysql{
+  background-color: #E97B00;
+}
+
+.skill.wp{
+  background-color: #237CA4;
+}
+
+.skill.html{
+  background-color: #E44F25;
+}
+
+.skill.css{
+  background-color: #2177FF;
+}
+
+.skill.js{
+  background-color: #8A9D21;
+}
+
+.skill.jq{
+  background-color: #0769AD;
+}
+
+.skill.psd{
+  background-color: #222;
+}
+
+.skill.prestashop{
+  background-color: #90c85c;
+}
+
+.skill.smarty{
+  background-color: #EDF459;
+}
+
+.skill.opensuse{
+  background-color: #90c85c;
+}
+
+.skill.vim{
+  background-color: #007f00;
+}
+
+.skill.laravel{
+  background-color: #f4726d;
+}
+
+.skill.bootstrap{
+  background-color: #594080;
+}
+/*
+  Footer
+*/
+
+.copyright{
+  float: left;
+  font-weight: bold;
+}
+
+.socials{
+  float: right;
+  >a{
+    text-decoration: none;
+    font-size: 26px;
+    margin-left: 4px;
+  }
+}
+
+.entypo-facebook {
+  color: #4D679F;
+}
+
+.entypo-twitter {
+  color: #4285F4;
+}
+
+.entypo-gplus {
+  color: #F24740;
+}
+
+.entypo-github {
+  color: #333;
+}

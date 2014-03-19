@@ -1,0 +1,11 @@
+{
+  "name": "younesrafie",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~1.10.2",
+    "picturefill": "1.2.*",
+    "matchmedia": "0.2.0"
+  },
+  "devDependencies": {}
+}
